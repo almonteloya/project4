@@ -42,7 +42,7 @@ def test_nw_backtrace():
     seq3, _ = read_fasta("./data/test_seq3.fa")
     seq4, _ = read_fasta("./data/test_seq4.fa")
     test = NeedlemanWunsch("./substitution_matrices/BLOSUM62.mat",-10,-1)
-    print(test.align("MQR", "MYQR"))
+    print(test.align(seq3, seq4))
 
 
 
