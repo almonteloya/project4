@@ -16,7 +16,7 @@ def test_nw_alignment():
     seq2, _ = read_fasta("./data/test_seq2.fa")
     
     test = NeedlemanWunsch("./substitution_matrices/BLOSUM62.mat",-10,-1)
-    test.align(seq1, seq2)                     
+    test.align("MQR", "MYQR")                     
                    
 
     ## Calculate this matrices manually
@@ -42,8 +42,7 @@ def test_nw_backtrace():
     seq3, _ = read_fasta("./data/test_seq3.fa")
     seq4, _ = read_fasta("./data/test_seq4.fa")
     test = NeedlemanWunsch("./substitution_matrices/BLOSUM62.mat",-10,-1)
-    print(test.align(seq3, seq4))                    
-
+    print(test.align("MQR", "MYQR"))
 
 
 
