@@ -326,11 +326,14 @@ class NeedlemanWunsch:
         if max_index==2:
             self.Y_function(row,col)
         
-        
+        ## strings to calculate the last seq alignment
         SA=""
         SB=""
+        # Used as a temporary list before producing final alignment  
         SA_Alignment=[]
         SB_Alignment=[]
+        
+        ## Sepaarte the GAPS in A and GAPS in B
         for i in (self.score):
             if i==1:
                 SA_Alignment.append(1)
@@ -344,7 +347,8 @@ class NeedlemanWunsch:
 
         seqA_reverse = self._seqA[::-1] 
         seqB_reverse = self._seqB[::-1] 
-     
+        
+        ## For each string if find one print that letter, if not add a gap
         count=0
         for i in SA_Alignment:
             if i==1:
@@ -358,7 +362,8 @@ class NeedlemanWunsch:
                 SB+=seqB_reverse[count]
                 count+=1
             else:
-                SB+="-"       
+                SB+="-"    
+        ## Reverse the string and  use it as a antribute
         self.seqA_align = SA[::-1]
         self.seqB_align = SB[::-1]
         return(self.alignment_score,self.seqA_align,self.seqB_align)
@@ -404,10 +409,3 @@ def read_fasta(fasta_file: str) -> Tuple[str, str]:
                 break
     return seq, header
 
-test=NeedlemanWunsch("/Users/anaalmonte/Documents/Algorithms/project4/substitution_matrices/BLOSUM62.mat",-10,-1)                   
-print(test.align("MAVHQLIRRP", "MQLIRHP"))                     
-
-
-
-
-            
