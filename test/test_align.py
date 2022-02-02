@@ -42,7 +42,8 @@ def test_nw_backtrace():
     seq3, _ = read_fasta("./data/test_seq3.fa")
     seq4, _ = read_fasta("./data/test_seq4.fa")
     test = NeedlemanWunsch("./substitution_matrices/BLOSUM62.mat",-10,-1)
-    print(test.align(seq3, seq4))
+    ### Based on the homework we know the following is true
+    assert(test.align(seq3, seq4) == (17.0, 'MAVHQLIRRP', 'M---QLIRHP'))
 
 
 
